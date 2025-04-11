@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Livros</title>
+</head>
+<body>
+    <h1>Livros Cadastrados</h1>
+    <ul>
+      {% for livro in livros %}
+          <li>
+              <strong>{{ livro.titulo }}</strong> - {{ livro.autor }}
+              {% if livro.ano_publicacao %}
+                  ({{ livro.ano_publicacao }})
+              {% endif %}
+          </li>
+      {% endfor %}
+  </ul>
+    <a href="{% url 'adicionar_livro' %}">Adicionar novo livro</a>
+</body>
+</html>
