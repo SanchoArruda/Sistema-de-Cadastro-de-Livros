@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Adicionar Livro</title>
-</head>
-<body>
+{% extends '_base.html' %}
+
+{% block title %}Adicionar Livro{% endblock %}
+
+{% block content %}
     <h1>Adicionar Livro</h1>
 
     {% if messages %}
@@ -16,10 +15,9 @@
 
     <form method="post" action="" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form.as_p }}
+        {{ form }}
         <button type="submit">Salvar</button>
     </form>
 
-    <a href="{% url 'lista_livros' %}">Voltar para a lista</a>
-</body>
-</html>
+    <a href="{% url 'livros:lista_livros' %}">Voltar para a lista</a>
+{% endblock %}
