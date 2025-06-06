@@ -1,0 +1,48 @@
+{% extends '_base.html' %}
+
+{% block title %}
+    Livros cadastrados
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                <table class="table table-bordered align-middle text-center table-striped">
+                    <tr>
+                        <th>Título</th>
+                        <th colspan="3">Ações</th>
+                    </tr>
+                    {% for livro in livros %}
+                    <tr>
+                        <td>
+                            <strong>{{ livro.titulo }}</strong> - {{ livro.autor }}
+                            {% if livro.ano_publicacao %}
+                            ({{ livro.ano_publicacao }})
+                            {% endif %}
+                        </td>
+                        <td>
+                            <a href="{% url 'livros:detalhe_livro' livro.id %}">Ver detalhes</a>
+                        </td>
+                        <td>
+                            <a href="{% url 'livros:editar_livro' livro.id %}">Editar</a>
+                        </td>
+                        <td>
+                            <a href="{% url 'livros:deletar_livro' livro.id %}">Excluir</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+
+<a href="{% url 'livros:adicionar_livro' %}">Adicionar novo livro</a>
+{% endblock %}

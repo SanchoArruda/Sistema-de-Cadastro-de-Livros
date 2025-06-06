@@ -1,0 +1,11 @@
+{% extends '_base.html' %}
+
+{% block title %}Detalhes do editora{% endblock %}
+
+{% block content %}
+    <h1>{{ editora.titulo }}</h1>
+    <p>Autor: {{ editora.autor }}</p>
+    <p>Ano de Publicação: {{ editora.ano_publicacao }}</p>
+
+    <a href="{% url 'editora:lista_editora' %}">Voltar para lista</a>
+{% endblock %}

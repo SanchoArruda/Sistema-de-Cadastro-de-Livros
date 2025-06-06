@@ -1,0 +1,34 @@
+{% extends '_base.html' %}
+
+{% block title %}Lista de editora{% endblock %}
+
+{% block content %}
+    <h1>editora Cadastrados</h1>
+    <table border="1"> >
+        <tr>
+            <th>Título</th>
+            <th colspan="3">Ações</th>
+        </tr>
+            {% for editora in editora %}
+            <tr>
+                <td>
+                    <strong>{{ editora.titulo }}</strong> - {{ editora.autor }}
+                    {% if editora.ano_publicacao %}
+                        ({{ editora.ano_publicacao }})
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="{% url 'editora:detalhe_editora' editora.id %}">Ver detalhes</a>
+                </td>
+                <td>
+                    <a href="{% url 'editora:editar_editora' editora.id %}">Editar</a>
+                </td>
+                <td>
+                    <a href="{% url 'editora:deletar_editora' editora.id %}">Excluir</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    
+    <a href="{% url 'editora:adicionar_editora' %}">Adicionar novo editora</a>
+{% endblock %}

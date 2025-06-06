@@ -1,0 +1,23 @@
+{% extends '_base.html' %}
+
+{% block title %}Adicionar Livro{% endblock %}
+
+{% block content %}
+    <h1>Adicionar Editora</h1>
+
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <form method="post" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Salvar</button>
+    </form>
+
+    <a href="{% url 'editora:lista_editora' %}">Voltar para a lista</a>
+{% endblock %}

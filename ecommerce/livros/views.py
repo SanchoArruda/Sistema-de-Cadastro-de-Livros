@@ -37,5 +37,5 @@ def editar_livro(request, id):
 def deletar_livro(request, id):
     Livro.objects.get(id=id).delete()
     return HttpResponseRedirect('/livros/')
-    return render(request, 'livros/deletar_livro.html', {'livro': livro})
-
+    
+    return render(request, 'livros/deletar_livro.html', {'livro': livro})   
