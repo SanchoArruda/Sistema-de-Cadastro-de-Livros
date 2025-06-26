@@ -23,13 +23,14 @@
                             {% endif %}
                         </td>
                         <td>
-                            <a href="{% url 'livros:detalhe_livro' livro.id %}">Ver detalhes</a>
+                            <a href="{% url 'livros:detalhe_livro' livro.id %}"><i class="fa fa-eye" aria-hidden="true"></i>
+</a>
                         </td>
                         <td>
-                            <a href="{% url 'livros:editar_livro' livro.id %}">Editar</a>
+                            <a href="{% url 'livros:editar_livro' livro.id %}"><i class="fa fa-pen"></i></a>
                         </td>
                         <td>
-                            <a href="{% url 'livros:deletar_livro' livro.id %}">Excluir</a>
+                            <a href="{% url 'livros:deletar_livro' livro.id %}"><i class="fa fa-trash"></i></a>
                         </td>
                     </tr>
                     {% endfor %}
@@ -43,6 +44,5 @@
 
 
 
-
-<a href="{% url 'livros:adicionar_livro' %}">Adicionar novo livro</a>
+<a href="{% url 'livros:adicionar_livro' %}" class="btn btn-success">Adicionar novo livro</a>
 {% endblock %}

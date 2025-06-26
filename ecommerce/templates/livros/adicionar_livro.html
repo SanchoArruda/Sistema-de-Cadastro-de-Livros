@@ -16,8 +16,8 @@
     <form method="post" action="" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form }}
-        <button type="submit">Salvar</button>
+        <button class="btn-primary mt-2" type="submit">Salvar</button>
     </form>
 
-    <a href="{% url 'livros:lista_livros' %}">Voltar para a lista</a>
+    <a href="{% url 'livros:lista_livros' %}" class="btn btn-warning">Voltar para a lista</a>
 {% endblock %}

@@ -20,10 +20,12 @@ from django.views.generic import RedirectView
 from . import views 
 
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('livros/', include('livros.urls')),
     path('editoras/', include('editora.urls')),
     path('', views.index, name='index'),
+    path('accounts/', include('django.contrib.auth.urls')),  # Para login/logout
 ]
 

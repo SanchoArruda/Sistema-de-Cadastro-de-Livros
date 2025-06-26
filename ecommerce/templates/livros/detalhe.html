@@ -5,15 +5,24 @@
 {% block content %}
 <div class="row">
     <div class="col">
-        <div class="card">
+        <div class="card shadow mb-4">
             <div class="card-body">
-                <h2>{{ livro.titulo }}</h2>
-                <p>Autor: {{ livro.autor }}</p>
-                <p>Ano de Publicação: {{ livro.ano_publicacao }}</p>
+                <h2 class="card-title">{{ livro.titulo }}</h2>
+                <p><strong>Autor:</strong> {{ livro.autor }}</p>
+                <p><strong>Ano de Publicação:</strong> {{ livro.ano_publicacao }}</p>
+                <p><strong>Categorias:</strong>
+                    {% if livro.categorias.all %}
+                        {% for categoria in livro.categorias.all %}
+                            <span class="badge bg-light text-dark me-1">{{ categoria.nome }}</span>
+                        {% endfor %}
+                    {% else %}
+                        <span class="text-muted">Nenhuma categoria cadastrada.</span>
+                    {% endif %}
+                </p>
             </div>
         </div>
     </div>
 </div>
 
-<a href="{% url 'livros:adicionar_livro' %}">Adicionar novo livro</a>
+<a href="{% url 'livros:adicionar_livro' %}" class="btn btn-outline-primary mt-3">Adicionar novo livro</a>
 {% endblock %}
