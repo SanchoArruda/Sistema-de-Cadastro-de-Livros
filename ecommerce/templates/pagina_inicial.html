@@ -1,0 +1,17 @@
+{% extends '_base.html' %}
+
+{% block title %}
+Página Inicial
+{% endblock %}
+
+{% block content %}
+<div class="card shadow mb-4">
+    <div class="card-body">
+        <h2 class="text-primary">Bem-vindo ao Sistema da Livraria!</h2>
+        <p>Este sistema permite adicionar, visualizar, deletar e atualizar livros. Com o diferencial de adicionar uma ou mais categorias a um livro, podendo ser criadas quantas categorias você quiser.</p>
+        <p><strong>Para acessar todos os recursos, é necessário estar logado.</strong></p>
+        <a href="{% url 'login' %}" class="btn btn-primary mt-3">Fazer Login</a>
+    </div>
+</div>
+{% endblock %}
+

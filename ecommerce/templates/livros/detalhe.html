@@ -8,8 +8,9 @@
         <div class="card shadow mb-4">
             <div class="card-body">
                 <h2 class="card-title">{{ livro.titulo }}</h2>
-                <p><strong>Autor:</strong> {{ livro.autor }}</p>
+                <p><strong>Autor (texto simples):</strong> {{ livro.autor }}</p>
                 <p><strong>Ano de Publicação:</strong> {{ livro.ano_publicacao }}</p>
+
                 <p><strong>Categorias:</strong>
                     {% if livro.categorias.all %}
                         {% for categoria in livro.categorias.all %}
@@ -19,6 +20,18 @@
                         <span class="text-muted">Nenhuma categoria cadastrada.</span>
                     {% endif %}
                 </p>
+
+                <p><strong>Autores Relacionados (com ordem):</strong></p>
+                <ul>
+                    {% for livro_autor in livro.livroautor_set.all|dictsort:"ordem_autoria" %}
+                        <li>
+                            {{ livro_autor.ordem_autoria }}º autor: {{ livro_autor.autor.nome }}
+                        </li>
+                    {% empty %}
+                        <li class="text-muted">Nenhum autor registrado com ordem.</li>
+                    {% endfor %}
+                </ul>
+
             </div>
         </div>
     </div>

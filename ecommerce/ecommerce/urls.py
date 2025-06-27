@@ -26,6 +26,7 @@ urlpatterns = [
     path('livros/', include('livros.urls')),
     path('editoras/', include('editora.urls')),
     path('', views.index, name='index'),
-    path('accounts/', include('django.contrib.auth.urls')),  # Para login/logout
+    path('accounts/', include('django.contrib.auth.urls')),
+     path('paginicial/', views.pagina_inicial, name='pagina_inicial'),  # Para login/logout
 ]
 

@@ -23,14 +23,19 @@
                             {% endif %}
                         </td>
                         <td>
-                            <a href="{% url 'livros:detalhe_livro' livro.id %}"><i class="fa fa-eye" aria-hidden="true"></i>
-</a>
+                            <a href="{% url 'livros:detalhe_livro' livro.id %}">
+                                <i class="fa fa-eye" aria-hidden="true"></i>
+                            </a>
                         </td>
                         <td>
-                            <a href="{% url 'livros:editar_livro' livro.id %}"><i class="fa fa-pen"></i></a>
+                            <a href="{% url 'livros:editar_livro' livro.id %}">
+                                <i class="fa fa-pen"></i>
+                            </a>
                         </td>
                         <td>
-                            <a href="{% url 'livros:deletar_livro' livro.id %}"><i class="fa fa-trash"></i></a>
+                            <a href="{% url 'livros:deletar_livro' livro.id %}">
+                                <i class="fa fa-trash"></i>
+                            </a>
                         </td>
                     </tr>
                     {% endfor %}
